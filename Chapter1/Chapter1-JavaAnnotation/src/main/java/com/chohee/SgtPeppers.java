@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 //naming the bean different than default -> @Component("desiredName")
 @Component
-public class SgtPepeers implements CompactDisc{
+public class SgtPeppers implements CompactDisc{
 
     private String title = "Sgt. Pepper's Lonely Hearts Club Band";
     private String artist = "The Beatles";
