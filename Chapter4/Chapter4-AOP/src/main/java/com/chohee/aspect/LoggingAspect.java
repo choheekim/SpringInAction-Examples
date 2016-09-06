@@ -11,8 +11,15 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(public String getName())")
-    public void loggingAdvice() {
-        System.out.println("Advice runs. Get Method called");
+    //specifying target for particular class/object
+    @Before("execution(public String com.chohee.model.Circle.getName())")
+    public void loggingAdviceForCircle() {
+
+        System.out.println("Advice runs. Get Method called for Circle class");
+    }
+
+    @Before("execution(public String com.chohee.model.Triangle.getName())")
+    public void loggingAdviceForTriangle() {
+        System.out.println("Advice runs. Get Method called for Triangle class");
     }
 }
