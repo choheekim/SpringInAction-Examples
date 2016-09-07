@@ -1,5 +1,6 @@
 package com.chohee;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 /**
@@ -12,6 +13,25 @@ public class Audience {
     @Pointcut("execution(** com.chohee.Performance.perform(..))")
     public void performance() {}
 
+    @Around("performance()")
+    public void watchPerformance(ProceedingJoinPoint proceedingJoinPoint) {
+
+        try {
+
+            System.out.println("Silencing cell phones");
+            System.out.println("Taking seats");
+
+            proceedingJoinPoint.proceed();
+
+            System.out.println("CLAP CLAP CLAP!!!");
+        }catch(Throwable e) {
+            System.out.println("Demanding a refund");
+        }
+
+
+    }
+
+    /*
     @Before("performance()")
     public void silenceCellPhone() {
         System.out.println("Silencing cell phone");
@@ -31,4 +51,5 @@ public class Audience {
     public void demandRefund() {
         System.out.println("Demanding a refund");
     }
+    */
 }
