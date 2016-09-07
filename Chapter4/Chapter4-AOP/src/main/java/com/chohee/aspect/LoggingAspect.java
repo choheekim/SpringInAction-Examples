@@ -1,6 +1,7 @@
 package com.chohee.aspect;
 
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -12,34 +13,22 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class LoggingAspect {
 
-    /**
-    //specifying target for particular class/object
-    @Before("execution(public String com.chohee.model.Circle.getName())")
-    public void loggingAdviceForCircle() {
 
-        System.out.println("Advice runs. Get Method called for Circle class");
-    }
-
-    @Before("execution(public String com.chohee.model.Triangle.getName())")
-    public void loggingAdviceForTriangle() {
-        System.out.println("Advice runs. Get Method called for Triangle class");
-    }
-    **/
-
-    @Before("allGetters()")
-    public void LoggingAdvice() {
-        System.out.println("Advice runs. * Get* Method called.");
-    }
-
+    //Joinpoint has information of a method that triggers the advice
     @Before("allCircleMethods()")
-    public void LoggingAdviceForCircle() {
-        System.out.println("Advice for all circle methods. One of the methods in circle get called");
+    public void LoggingAdvice(JoinPoint joinPoint) {
+        //getTarget() --> allows to access the object contains trigger method
+
     }
 
-    @Before("allTriangleMethods()")
-    public void  LoggingAdviceForTriangle() {
-        System.out.println("Advice for all triangle methods. One of the methods in triangle get called");
+    @Before("args(name)")
+    public void stringArgumentMethods(String name) {
+        System.out.println("A method that takes String arguments has been called. The value is " + name);
     }
+
+
+
+
 
 
     @Pointcut("execution(* get*())")

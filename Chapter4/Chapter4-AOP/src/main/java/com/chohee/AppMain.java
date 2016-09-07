@@ -14,7 +14,7 @@ public class AppMain {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ShapeConfig.class);
         ShapeService shapeService = (ShapeService) applicationContext.getBean("shapeService");
 
+        shapeService.getCircle().setName("New Circle Name");
         System.out.println(shapeService.getCircle().getName());
-        System.out.println(shapeService.getTriangle().getName());
     }
 }
