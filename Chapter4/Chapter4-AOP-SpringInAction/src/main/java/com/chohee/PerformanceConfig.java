@@ -34,4 +34,9 @@ public class PerformanceConfig {
         return new StagePlay();
     }
 
+    @Bean
+    public DefaultEncorable defaultEncorable() {
+        return new DefaultEncorable();
+    }
+
 }
