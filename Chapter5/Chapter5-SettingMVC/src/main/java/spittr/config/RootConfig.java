@@ -12,6 +12,7 @@ import static org.springframework.context.annotation.ComponentScan.*;
  */
 
 @Configuration
+@EnableWebMvc
 @ComponentScan(basePackages = {"spittr"}, excludeFilters ={@Filter(type = FilterType.ANNOTATION, value= EnableWebMvc.class)})
 public class RootConfig {
 }

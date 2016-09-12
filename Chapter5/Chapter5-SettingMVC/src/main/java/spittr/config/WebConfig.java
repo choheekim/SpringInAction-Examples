@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan
+@ComponentScan("spitter.web")
 public class WebConfig extends WebMvcConfigurerAdapter{
 
 
@@ -24,7 +24,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         InternalResourceViewResolver resolver = new InternalResourceViewResolver(); //Configure a JSP view resolver
 
         //look for JSP files by wrapping view names with a specific prefix and suffix
-        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setPrefix("/src/main/webapp/views/");
         resolver.setSuffix(".jsp");
         resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
